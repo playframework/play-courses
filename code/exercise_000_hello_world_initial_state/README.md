@@ -1,37 +1,21 @@
-# Play Hello World Web Tutorial for Scala
+## Project structure
 
-To follow the steps in this tutorial, you will need the correct version of Java and sbt. The tutorial requires:
+A Play application is based on the MVC pattern:
 
-* Java Software Developer's Kit (SE) 11 or higher
-* sbt 1.8.2 or higher. Note: if you downloaded this project as a zip file from https://developer.lightbend.com, the file includes an sbt distribution for your convenience.
+* Model: Manages the data and business logic
+* View: Manages the layout and display
+* Controller: Routes commands from the model and view parts
 
-To check your Java version, enter the following in a command window:
+For now our application has not any model (we will come back to this later)
 
-```bash
-java -version
-```
+The `build.sbt` file is a configuration file for a Play application built using the Scala build tool (sbt). It contains information about the project's dependencies, settings, and build configuration.
 
-To check your sbt version, enter the following in a command window:
+The `plugins.sbt` file is used in a Scala project to specify the plugins that should be used by the build tool (sbt) when building the project. It is located in the `project` directory of a Play application and is used to declare sbt plugins and their versions.
 
-```bash
-sbt sbtVersion
-```
-
-If you do not have the required versions, follow these links to obtain them:
-
-* [Java SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [sbt](http://www.scala-sbt.org/download.html)
+The `routes` file is used to define the application's HTTP routes. It maps HTTP requests to controller methods, and it is responsible for directing requests to the appropriate controller action.
 
 ## Build and run the project
 
-This example Play project was created from a seed template. It includes all Play components and an Akka HTTP server. The project is also configured with filters for Cross-Site Request Forgery (CSRF) protection and security headers.
-
-To build and run the project:
-
-1. Use a command window to change into the example project directory, for example: `cd play-scala-hello-world-tutorial`
-
-2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
-
-3. After the message `Server started, ...` displays, enter the following URL in a browser: <http://localhost:9000>
+Try to build and run the project, normaly if everything is good, when you go to [http://localhost:9000](http://localhost:9000):
 
 The Play application responds: `Welcome to the Hello World Tutorial!`
