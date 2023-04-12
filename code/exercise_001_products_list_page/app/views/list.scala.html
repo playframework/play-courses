@@ -1,0 +1,12 @@
+@(products: List[Product])
+
+@main("application.name") {
+  <dl class="products">
+    @for(product <- products) {
+      <div class="product">
+        <dt>@product.name</dt>
+        <dd>@product.description</dd>
+      </div>
+    }
+  </dl>
+}
