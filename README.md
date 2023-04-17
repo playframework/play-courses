@@ -47,8 +47,8 @@ If the possible parameters are returned the installation is successful.
 ## CMT course setup
 
 - Clone the repository to a directory of your choice
-- At the root of the repository run the studentify: `cmta studentify -f -m . -d [dir_path]`
-- Set up the studentified course as the current course: `cmtc set-current-course -s [dir_path]`
+- At the root of the repository run the studentify: `cmta studentify -f -m . -d [target_dir_path]`
+- Set up the studentified course as the current course: `cmtc set-current-course -s [target_dir_path]`
 
 Once this is done you can run `cmtc` to display the possible commands
 
