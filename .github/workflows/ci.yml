@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        exercise: ${{fromJson(needs.list-exercises.outputs.exercises)}}   
+        exercise: ${{fromJson(needs.list-exercises.outputs.exercises)}}
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -63,85 +63,85 @@ jobs:
         if: ${{ needs.validate_course.result != 'success' }}
         run: exit 1
 
-  # create_release:
-  #   runs-on: ubuntu-latest
-  #   needs: [validate_course]
-  #   # Release gets triggered only on creating new tags
-  #   if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/')
-  #   
-  #   steps:
-  #         
-  #     - name: Checkout Course Repo
-  #       uses: actions/checkout@v3
-  #       with:
-  #         path: lunatech-scala-2-to-scala3-course
-  #         fetch-depth: 0          
-  #     
-  #     - name: Setup Course Management Tools
-  #       uses: robinraju/release-downloader@v1.7
-  #       with:
-  #         repository: lunatech-labs/course-management-tools
-  #         tag: "2.0.0-RC6"
-  #         fileName: "course-management-tools.zip"
-  #         out-file-path: "."
-  #     - run: |
-  #         unzip course-management-tools.zip
-  #         echo "$GITHUB_WORKSPACE/course-management-tools/bin" >> $GITHUB_PATH
-  #
-  #     - name: Set up JDK 11
-  #       uses: actions/setup-java@v3
-  #       with:
-  #         java-version: 11
-  #         distribution: 'temurin'
-  #     
-  #     - name: Setup Coursier Cache
-  #       uses: coursier/cache-action@v6.2
-  #       with:
-  #         root: "lunatech-scala-2-to-scala3-course"
-  #     
-  #     - name: Studentify Repo
-  #       run: |
-  #         mkdir -p studentified
-  #         export PATH=${PATH}:$GITHUB_WORKSPACE/CMT/bin
-  #         git config --global user.email "no-reply@lunatech.com"
-  #         git config --global user.name "Lunatech Labs"
-  #         cmta studentify -f -g -m lunatech-scala-2-to-scala3-course -d studentified
-  #         (cd studentified && exec zip -r lunatech-scala-2-to-scala3-course-student.zip lunatech-scala-2-to-scala3-course)  
-  #         
-  #     - name: Linearize Repo
-  #       run: |
-  #         mkdir -p linearized
-  #         cmta linearize -f -m lunatech-scala-2-to-scala3-course -d linearized
-  #         mv linearized/lunatech-scala-2-to-scala3-course linearized/lunatech-scala-2-to-scala3-course-linearized
-  #         (cd linearized && exec zip -r lunatech-scala-2-to-scala3-course-linearized.zip lunatech-scala-2-to-scala3-course-linearized)
-  #       
-  #     - name: Create Github Release
-  #       id: create_release
-  #       uses: actions/create-release@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-  #       with:
-  #         tag_name: ${{ github.ref }}
-  #         release_name: Release ${{ github.ref }}
-  #         draft: false
-  #         prerelease: false
-  #         
-  #     - name: Upload Studentified repo to Github release
-  #       uses: actions/upload-release-asset@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       with:
-  #         upload_url: ${{ steps.create_release.outputs.upload_url }} # release created from previous step
-  #         asset_path: ./studentified/lunatech-scala-2-to-scala3-course-student.zip
-  #         asset_name: lunatech-scala-2-to-scala3-course-student.zip
-  #         asset_content_type: application/zip
-  #    
-  #     - name: Upload Linearized repo to Github release
-  #       uses: actions/upload-release-asset@v1
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       with:
-  #         upload_url: ${{ steps.create_release.outputs.upload_url }} # release created from previous step
-  #         asset_path: ./linearized/lunatech-scala-2-to-scala3-course-linearized.zip
-  #         asset_name: lunatech-scala-2-to-scala3-course-linearized.zip
-  #         asset_content_type: application/zip
+  create_release:
+    runs-on: ubuntu-latest
+    needs: [validate_course]
+    # Release gets triggered only on creating new tags
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/')
+
+    steps:
+
+      - name: Checkout Course Repo
+        uses: actions/checkout@v3
+        with:
+          path: play-courses
+          fetch-depth: 0
+
+      - name: Setup Course Management Tools
+        uses: robinraju/release-downloader@v1.7
+        with:
+          repository: lunatech-labs/course-management-tools
+          tag: "2.0.0-RC7"
+          fileName: "course-management-tools.zip"
+          out-file-path: "."
+      - run: |
+          unzip course-management-tools.zip
+          echo "$GITHUB_WORKSPACE/course-management-tools/bin" >> $GITHUB_PATH
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: 11
+          distribution: 'temurin'
+
+      - name: Setup Coursier Cache
+        uses: coursier/cache-action@v6.2
+        with:
+          root: "play-courses"
+
+      - name: Studentify Repo
+        run: |
+          mkdir -p studentified
+          export PATH=${PATH}:$GITHUB_WORKSPACE/CMT/bin
+          git config --global user.email "default@playframework.com"
+          git config --global user.name "Play Framework"
+          cmta studentify -f -g -m play-courses -d studentified
+          (cd studentified && exec zip -r play-courses.zip play-courses)
+
+      - name: Linearize Repo
+        run: |
+          mkdir -p linearized
+          cmta linearize -f -m play-courses -d linearized
+          mv linearized/play-courses linearized/play-courses-linearized
+          (cd linearized && exec zip -r play-courses-linearized.zip play-courses-linearized)
+
+      - name: Create Github Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Studentified repo to Github release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # release created from previous step
+          asset_path: ./studentified/play-courses-student.zip
+          asset_name: play-courses-student.zip
+          asset_content_type: application/zip
+
+      - name: Upload Linearized repo to Github release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # release created from previous step
+          asset_path: ./linearized/play-courses-linearized.zip
+          asset_name: play-courses-linearized.zip
+          asset_content_type: application/zip
