@@ -59,3 +59,12 @@ To build and run the project:
 1. Use a command window to change into the code folder of the project directory, for example: `cd play-course/code`
 2. Build the project. Enter: `sbt run`. The project builds and starts the embedded HTTP server. Since this downloads libraries and dependencies, the amount of time required depends partly on your connection's speed.
 3. After the message `Server started, ...` displays, enter the following URL in a browser: [http://localhost:9000](http://localhost:9000)
+
+## Release
+
+- Push your changes & create a pull request
+- CI will run tests on each exercise
+- Merge the pull request into main
+- Create a tag for the release (e.g., `2.9.0-M4`)
+- Push the tag on the upstream repository (e.g. `git push --tags upstream`)
+- CI will run tests & create a release -> A release consists of a student & a linearised repository
