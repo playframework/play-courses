@@ -106,7 +106,7 @@ jobs:
           git config --global user.email "default@playframework.com"
           git config --global user.name "Play Framework"
           cmta studentify -f -g -m play-courses -d studentified
-          (cd studentified && exec zip -r play-courses.zip play-courses)
+          (cd studentified && exec zip -r play-courses-student.zip play-courses)
 
       - name: Linearize Repo
         run: |
