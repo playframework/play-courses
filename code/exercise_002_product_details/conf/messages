@@ -1,0 +1,7 @@
+# https://www.playframework.com/documentation/latest/ScalaI18N
+application.name = Product catalog
+ean = EAN
+name = Name
+description = Description
+
+product.details = Product: {0}
