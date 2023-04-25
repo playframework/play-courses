@@ -11,7 +11,11 @@
   font-size: 1.5rem;
 }
 
-.products, dt, dd {
+.products dt {
+  padding: 1rem;
+}
+
+.product dd {
   padding: 1rem;
 }
 
