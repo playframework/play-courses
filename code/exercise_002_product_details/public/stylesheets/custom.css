@@ -1,0 +1,30 @@
+.products {
+  padding: 1rem;
+}
+
+.product {
+  border: 1px black solid;
+}
+
+.product dt {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.products dt {
+  padding: 1rem;
+}
+
+.product dd {
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+footer p {
+  font-weight: bold;
+  color: black;
+}
