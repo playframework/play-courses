@@ -1,6 +1,6 @@
-@(products: List[Product])
+@(products: List[Product])(implicit messages: MessagesProvider)
 
-@main("application.name") {
+@main(Messages("application.name")) {
   <dl class="products">
     @for(product <- products) {
       <div class="product">

@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(content: Html)
+@(title: String)(content: Html)(implicit messages: MessagesProvider)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,8 @@
 <body>
     <section id="top">
         <div class="wrapper">
-            <img class="resize" src="assets/images/play_icon_reverse.svg" alt="logo" />
-            <h1>Play Hello World Web Tutorial</h1>
+            <img class="resize" src='@routes.Assets.versioned("images/play_icon_reverse.svg")' alt="logo" />
+            <h1>@title</h1>
         </div>
     </section>
     @content
