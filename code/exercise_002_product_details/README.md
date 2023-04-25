@@ -138,6 +138,11 @@ In the stylesheet create a new css file and add this code:
 }
 ```
 
+In main.scala.html add :
+```html
+<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/details.css")'>
+```
+
 #### Barcode Template
 
 In `view` create a new folder named `tags` and in this one create the template `barcode.scala.html`
