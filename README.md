@@ -1,5 +1,7 @@
 # play-courses
 
+This course is based on the example of the book `Play For Scala` written by `Peter Hilton, Erik Bakker and Francisco Canedo`.
+
 The CMT complete documentation is available [here](http://cmt.lunatech.com/docs/getting_started).
 
 ## Requirement
@@ -68,3 +70,15 @@ To build and run the project:
 - Create a tag for the release (e.g., `2.9.0-M4`)
 - Push the tag on the upstream repository (e.g. `git push --tags upstream`)
 - CI will run tests & create a release -> A release consists of a student & a linearised repository
+
+## Rules & Convention
+
+Commits name:
+Name the commit after the exercise name (e.g. exercise_00X_subject) when creating a new one.
+When doing a fix, add the exercise(s) name and the change in the title (e.g. exercise_00X fix css main template).
+When updating multiple exercises, the commit title should contain all the exercises' names and the subject of the change -> (e.g. exercises 001, 002, 00X => update http port application.conf).
+
+It's always a good idea to add a description under the commit title.
+- What are the changes
+- Why did it change
+- Meaningful resources related to the change
