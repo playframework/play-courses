@@ -1,4 +1,4 @@
-# Creating a product list page
+# Creating a product detail page
 
 ## Tasks
 
@@ -7,15 +7,15 @@ In this exercise, we will add a product details page to our Play application. To
 - Create a new finder method to fetch one specific product
 - Create a view template to show the product details page
 - Adding a route configuration, the URL should have a parameter
-- Generate a bar code image to display on the page
+- Generate a barcode image to display on the page
 
 ## Steps
 
 ### The model finder method
 
-Add a new method in the Product.scala model, we will name this one `findByEan`. The objective objective of this new method is to find a specific product based on its EAN.
+Add a new method to the Product.scala model, we will name this one `findByEan`. The objective of this new method is to find a specific product based on its EAN.
 
-| Hint: Have a look to the `find()` method |
+| Hint: Have a look at the `find()` method |
 | ------------------------------------------ |
 
 ### Messages
@@ -60,14 +60,14 @@ product.details = Product: {0}
 
 ### Templates
 
-You should create two new template, the first one will be for the to show the details of a specific product and the second one the bar code. Indeed, later we plan to reuse the latter. The new templates should be named:
+You should create two new templates, the first one will be used to show the details of a specific product, and the second one the bar code. Indeed, later we plan to reuse the latter. The new templates should be named:
 
 - `details.scala.html`
 - `barcode.scala.html`
 
 #### Details Template
 
-In this template we want:
+In this template, we want:
 
 - The product barcode
 - The product EAN
@@ -103,7 +103,7 @@ The template structure is:
 
 You should replace the [...] with the good data.
 
-In the stylesheet create a new css file and add this code:
+In the stylesheet, create a new css file and add this code:
 
 ```css
 .title-container {
@@ -154,22 +154,22 @@ The barcode template is really short, we just want an image with the barcode of 
 <img class="barcode" src="[...]" alt="@ean">
 ```
 
-As the previous template you should replace the [...] with the good data. However, we are going to see the routing and the controller creation in the next steps (you will need it to complete the template)
+As with the previous template, you should replace the [...] with the good data. However, we are going to see the routing and the controller creation in the next steps (you will need it to complete the template)
 
 ## Adding a new action to the `ProductController` action
 
-In this part we will create a new action named `show()` in the `ProductController`. We will pass to this one a parameter whose value will be the requested product’s EAN code. This action we should use our new method findByEan to return the `details.scala.html` with the product wanted. If no product was found we should return a 404 error.
+In this part, we will create a new action named `show()` in the `ProductController`. We will pass to this one a parameter whose value will be the requested product’s EAN code. For this action, we should use our new method findByEan to return the `details.scala.html` with the product wanted. If no product was found we should return a 404 error.
 
 ## Create a new route for `show` with a parameter
 
-Next step is to create the associated route to our new `show` action.
+The next step is to create the associated route to our new `show` action.
 
 | Hint: You should think to add the parameter in the URL |
 | ------------------------------------------------------ |
 
 ## Add the barcode4j library
 
-We should add in the build.sbt the library to generate the barcode:
+We should add in build.sbt the library to generate the barcode:
 
 ```
 "net.sf.barcode4j" % "barcode4j" % "2.1"
@@ -177,7 +177,7 @@ We should add in the build.sbt the library to generate the barcode:
 
 ## Create the `BarcodeController`
 
-For now you can just take the code below and create the template named `BarcodeController.scala`
+For now, you can just take the code below and create the template named `BarcodeController.scala`
 
 ```java
 package controllers
