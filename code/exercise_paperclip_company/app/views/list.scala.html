@@ -1,0 +1,22 @@
+@(products: scala.collection.mutable.ArrayBuffer[Product], form: Form[Product])(implicit messages: MessagesProvider, request: RequestHeader)
+
+@main(Messages("application.name")) {
+  <dl class="products">
+    @for(product <- products) {
+      <div class="product">
+        <dt>@product.name</dt>
+        <dd>@product.description</dd>
+      </div>
+    }
+  </dl>
+
+  @helper.form(controllers.routes.ProductController.list()) {
+    @helper.CSRF.formField
+
+    @helper.inputText(form("EAN"))
+    @helper.inputText(form("name"))
+    @helper.inputText(form("description"))
+
+    <button>Create Product</button>
+  }
+}
