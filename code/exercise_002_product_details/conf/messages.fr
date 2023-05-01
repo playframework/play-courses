@@ -1,8 +1,0 @@
-# https://www.playframework.com/documentation/latest/ScalaI18N
-application.name = Catalogue des produits
-
-ean = EAN
-name = Nom
-description = Descriptif
-
-product.details = Produit: {0}
