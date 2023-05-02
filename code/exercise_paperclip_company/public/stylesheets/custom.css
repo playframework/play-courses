@@ -28,3 +28,36 @@ footer p {
   font-weight: bold;
   color: black;
 }
+
+.flash {
+  padding: 0.6rem;
+}
+
+.flash p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-form {
+  padding: 1rem;
+}
+
+.product-form dt {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-form button {
+  border: black 1.5px solid;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
+}
+
+.product-form button:hover {
+  background-color: #80c846;
+}
+
+textarea {
+  resize: none;
+}

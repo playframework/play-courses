@@ -1,4 +1,4 @@
-# Creating a product detail page
+# Adding a new product
 
 ## Tasks
 

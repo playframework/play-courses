@@ -7,11 +7,12 @@ case class Product(
 )
 
 object Product {
+  // custom unapply method for the Play Form object, needed to compile in Scala3
   def unapply(product: Product): Option[(Long, String, String)] = {
     Some((product.ean, product.name, product.description))
   }
 
-  var products = scala.collection.mutable.Set(
+  var products = scala.collection.mutable.ArrayBuffer(
     Product(5010255079763L, "Paperclips Large",
       "Large Plain Pack of 1000"),
     Product(5018206244666L, "Giant Paperclips",
@@ -24,7 +25,7 @@ object Product {
       "Zebra Length 28mm Assorted 150 Pack")
     )
 
-  def findAll = products.toList.sortBy(_.ean)
+  def findAll = products.sortBy(_.ean)
 
   def findByEan(ean: Long) = products.find(_.ean == ean)
 }

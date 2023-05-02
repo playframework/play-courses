@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(content: Html)(implicit messages: MessagesProvider)
+@(title: String)(content: Html)(implicit messages: MessagesProvider, request: RequestHeader)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,12 @@
             <h1>@title</h1>
         </div>
     </section>
+    <div class="flash">
+      @request.flash.data.map { case (name, value) =>
+        <p>@name: @value</p>
+      }
+    </div>
+
     @content
 </body>
 
