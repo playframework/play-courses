@@ -1,32 +1,32 @@
 package controllers
 
-import play.api.i18n._
 import javax.inject.Inject
-import play.api.mvc.{Action, AbstractController, ControllerComponents, Request, MessagesRequest, AnyContent}
+
 import models.Product
+import play.api.i18n.*
+import play.api.mvc.{Action, AbstractController, ControllerComponents, Request, MessagesRequest, AnyContent}
 import play.api.data.Form
 import play.api.data.Forms.*
 
 class ProductController @Inject() (cc: ControllerComponents) extends AbstractController(cc) with I18nSupport {
-  private var products = Product.findAll
-
-  private var products2 = scala.collection.mutable.ArrayBuffer(
-    Product(5010255079763L, "Paperclips Large",
-      "Large Plain Pack of 1000"),
-    Product(5018206244666L, "Giant Paperclips",
-      "Giant Plain 51mm 100 pack"),
-    Product(5018306332812L, "Paperclip Giant Plain",
-      "Giant Plain Pack of 10000"),
-    Product(5018306312913L, "No Tear Paper Clip",
-      "No Tear Extra Large Pack of 1000"),
-    Product(5018206244611L, "Zebra Paperclips",
-      "Zebra Length 28mm Assorted 150 Pack"),
-    Product(7809247890124L, "Test Test",
-      "This is a test product to ensure that I am using the correct variable"),
+  val productForm: Form[Product] = Form(
+    mapping(
+      "ean" -> longNumber.verifying(
+        "validation.ean.duplicate",
+        fields =>
+          fields match {
+            case productEan => isEanExisting(productEan)
+          }
+      ),
+      "name" -> nonEmptyText,
+      "description" -> nonEmptyText,
+    )(Product.apply)(Product.unapply)
   )
 
-  def list = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.list(products2, productForm))
+  private var products = Product.findAll
+
+  def listProducts = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.products.listProducts(products.toSeq, productForm))
   }
 
   def show(ean: Long) = Action { implicit request: Request[AnyContent] =>
@@ -36,35 +36,24 @@ class ProductController @Inject() (cc: ControllerComponents) extends AbstractCon
   }
 
   def createProduct = Action { implicit request: Request[AnyContent] =>
+    println("create product function")
+
     val errorFunction = { (formWithErrors: Form[Product]) =>
-      BadRequest(views.html.list(products2, productForm))
+      BadRequest(views.html.products.listProducts(products.toSeq, formWithErrors))
     }
 
     val successFunction = { (data: Product) =>
       val product = Product(data.ean, data.name, data.description)
-      // products2 += product
+      products += product
 
-      Redirect(routes.ProductController.show(product.ean))
+      // Todo: add i18n messages
+      Redirect(routes.ProductController.listProducts()).flashing("info" -> "Product Added!")
     }
 
     productForm.bindFromRequest().fold(errorFunction, successFunction)
   }
 
-  def validateEan(ean: Long): Boolean = {
+  private def isEanExisting(ean: Long): Boolean = {
     Product.findByEan(ean).isEmpty
   }
-
-  val productForm: Form[Product] = Form(
-    mapping(
-      "ean" -> longNumber.verifying(
-        "validation.ean.duplicate",
-        fields =>
-          fields match {
-            case productEan => validateEan(productEan)
-          }
-      ),
-      "name" -> nonEmptyText,
-      "description" -> nonEmptyText,
-    )(Product.apply)(Product.unapply)
-  )
 }
