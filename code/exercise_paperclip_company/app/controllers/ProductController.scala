@@ -36,8 +36,6 @@ class ProductController @Inject() (cc: ControllerComponents) extends AbstractCon
   }
 
   def createProduct = Action { implicit request: Request[AnyContent] =>
-    println("create product function")
-
     val errorFunction = { (formWithErrors: Form[Product]) =>
       BadRequest(views.html.products.listProducts(products.toSeq, formWithErrors))
     }
