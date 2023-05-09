@@ -10,6 +10,9 @@ lazy val root = (project in file("."))
     scalaVersion := scala3,
     libraryDependencies ++= Seq(
       guice,
+      jdbc,
+      "org.postgresql" % "postgresql" % "42.6.0",
+      "org.squeryl" % "squeryl" % "0.10.0-RC2",
       "org.scalatestplus.play" %% "scalatestplus-play" % "6.0.0-M3" % Test,
       "net.sf.barcode4j" % "barcode4j" % "2.1"
     ),
