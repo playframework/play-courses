@@ -82,3 +82,11 @@ It's always a good idea to add a description under the commit title.
 - What are the changes
 - Why did it change
 - Meaningful resources related to the change
+
+## Setting up the database
+
+To setup the database, we provided a docker-compose file that take care of creating a Postgresql instance and initializing with a single table and some dummy data.
+
+```
+docker-compose up
+```
