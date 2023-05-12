@@ -29,7 +29,7 @@ In case of a valid form state, we can add the new product to our list and redire
 
 ### Create a route for saving products
 
-Now that we have a `createProduct` function, we can create the associated route. Update `conf/routes` with the correct HTTP method and the corresponding controller function.
+Now that we have a `create` function, we can create the associated route. Update `conf/routes` with the correct HTTP method and the corresponding controller function.
 
 ### Display the form to our users
 

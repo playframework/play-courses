@@ -11,6 +11,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       guice,
       jdbc,
+      "org.playframework.anorm" %% "anorm" % "2.7.0",
       "org.postgresql" % "postgresql" % "42.6.0",
       "org.scalatestplus.play" %% "scalatestplus-play" % "6.0.0-M3" % Test,
       "net.sf.barcode4j" % "barcode4j" % "2.1"

@@ -5,8 +5,16 @@
 
 GET     /                                   controllers.HomeController.index()
 
-GET     /products                           controllers.ProductController.listProducts()
-POST    /products                           controllers.ProductController.createProduct()
+GET     /products                           controllers.ProductController.list()
+
+GET     /products/new                       controllers.ProductController.create()
+POST    /products                           controllers.ProductController.save()
+
+GET     /products/edit/:id                  controllers.ProductController.edit(id: Long)
+POST    /products/edit/:id                  controllers.ProductController.update(id: Long)
+
+POST    /products/delete/:id                controllers.ProductController.delete(id: Long)
+
 GET     /products/:ean                      controllers.ProductController.show(ean: Long)
 GET     /barcode/:ean                       controllers.BarcodeController.barcode(ean: Long)
 
