@@ -17,24 +17,4 @@
       </div>
     }
   </dl>
-
-  @if(form.hasGlobalErrors) {
-    @form.globalErrors.map { (error: FormError) =>
-      <div>
-        @error.key: @error.message
-      </div>
-    }
-  }
-
-  <div class="product-form">
-    @helper.form(routes.ProductController.createProduct()) {
-      @helper.CSRF.formField
-
-      @helper.inputText(form("ean"))
-      @helper.inputText(form("name"))
-      @helper.textarea(form("description"), Symbol("columns") -> 3, Symbol("rows") -> 5)
-
-      <button>Create Product</button>
-    }
-  </div>
 }

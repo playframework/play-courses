@@ -1,5 +1,7 @@
-CREATE TABLE IF NOT EXISTS products (
-    id INTEGER CONSTRAINT PK_PRODUCTS PRIMARY KEY,
+Drop table if exists products;
+
+CREATE TABLE products (
+    id SERIAL CONSTRAINT PK_PRODUCTS PRIMARY KEY,
     ean BIGINT NULL,
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
