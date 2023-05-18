@@ -8,14 +8,14 @@ on:
       - '**/README.md'
       - 'slides/**'
       - 'scripts/**'
-    branches: [ main ]
+    branches: [ develop ]
   pull_request:
     paths-ignore:
       - 'README.md'
       - '**/README.md'
       - 'slides/**'
       - 'scripts/**'
-    branches: [ main ]
+    branches: [ develop ]
 
   workflow_dispatch:
 
