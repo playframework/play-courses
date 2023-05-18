@@ -95,7 +95,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Coursier Cache
-        uses: coursier/cache-action@v6.2
+        uses: coursier/cache-action@v6
         with:
           root: "play-courses"
 
