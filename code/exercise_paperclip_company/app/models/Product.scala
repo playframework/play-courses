@@ -46,7 +46,7 @@ class ProductDao @Inject()(database: Database) {
   val updateProductByEan: SqlQuery = SQL(
     """
       Update products
-      set 
+      set
         ean = {new_ean},
         name = {new_name},
         description = {new_description}
@@ -65,7 +65,7 @@ class ProductDao @Inject()(database: Database) {
   val productParser: RowParser[Product] =
     long("ean") ~ str("name") ~ str("description") map:
       case ean ~ name ~ description => Product(ean, name, description)
-        
+
   val productsParser: ResultSetParser[List[Product]] =
     productParser.*
 
