@@ -46,10 +46,10 @@ class ProductController @Inject() (
   def show(ean: Long) = Action { implicit request: Request[AnyContent] =>
     val resultProduct: Option[Product] = productDao.getByEan(ean)
     resultProduct match {
-      case Some(value) => Ok(views.html.products.details(value)) 
+      case Some(value) => Ok(views.html.products.details(value))
       case None => BadRequest
     }
-    
+
   }
 
   def create = Action { implicit request: Request[AnyContent] =>
