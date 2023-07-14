@@ -1,0 +1,20 @@
+@(product: Product)(implicit messages: MessagesProvider, request: RequestHeader)
+@main(Messages("product.details", product.name)) {
+    <div class="title-container">
+        <h2>
+            @Messages("product.details", product.name)
+        </h2>
+        @tags.barcode(product.ean)
+    </div>
+
+    <dl class="details">
+        <dt>@Messages("ean"):</dt>
+        <dd>@product.ean</dd>
+
+        <dt>@Messages("name"):</dt>
+        <dd>@product.name</dd>
+
+        <dt>@Messages("description"):</dt>
+        <dd>@product.description</dd>
+    </dl>
+}

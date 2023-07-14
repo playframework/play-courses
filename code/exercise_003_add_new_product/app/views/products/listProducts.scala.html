@@ -1,0 +1,20 @@
+@(products: Seq[Product], form: Form[Product])(implicit messages: MessagesProvider, request: RequestHeader)
+
+@main(Messages("application.name")) {
+  <p>Click on a button to choose list view or grid view.</p>
+
+  <div id="btnContainer">
+    <button class="btn" onclick="listView()"><i class="fa fa-bars"></i> List</button> 
+    <button class="btn" onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button>
+  </div>
+
+  <dl class="row">
+    @for(product <- products) {
+      <div class="column" style="border:1px solid black;">
+        <dt>@product.name</dt>
+        <dd>@product.description</dd>
+        <dd>@product.ean</dd>
+      </div>
+    }
+  </dl>
+}

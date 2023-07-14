@@ -1,0 +1,94 @@
+.products {
+  padding: 1rem;
+}
+
+.product {
+  border: 1px black solid;
+}
+
+.product dt {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.products dt {
+  padding: 1rem;
+}
+
+.product dd {
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+footer p {
+  font-weight: bold;
+  color: black;
+}
+
+.flash {
+  padding: 0.6rem;
+}
+
+.flash p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-form {
+  padding: 1rem;
+}
+
+.product-form dt {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-form button {
+  border: black 1.5px solid;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
+}
+
+.product-form button:hover {
+  background-color: #80c846;
+}
+
+textarea {
+  resize: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
