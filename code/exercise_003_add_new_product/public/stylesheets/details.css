@@ -1,0 +1,33 @@
+.title-container {
+    overflow: auto;
+    margin-top: 1em;
+}
+
+.title-container h2 {
+    margin-left: 1em;
+    float: left;
+}
+
+.title-container img {
+    float: right;
+}
+
+.details {
+    margin-top: -3em;
+    margin-left: 2em;
+}
+.details dt {
+    float: left;
+    clear: left;
+    width: 10em;
+    font-weight: bold;
+    color: green;
+}
+
+.details dd {
+    margin: 0 0 0 2em;
+    padding: 0 0 0.5em 0;
+}
+       
+
+
