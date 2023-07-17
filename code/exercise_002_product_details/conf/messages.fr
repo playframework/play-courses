@@ -1,0 +1,17 @@
+# https://www.playframework.com/documentation/latest/ScalaI18N
+application.name = Catalogue des produits
+
+ean = EAN
+name = Nom
+description = Descriptif
+
+product.details = Produit: {0}
+
+products.form = Details du Produit
+products.new = (nouveau)
+products.new.command = Nouveau
+products.new.submit = Ajouter
+products.new.success = {0} ajoute avec succes.
+
+validation.errors = Merci de corriger les erreurs dans le formulaire.
+validation.ean.duplicate = Un produit avec ce code EAN existe deja.
