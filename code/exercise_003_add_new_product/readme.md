@@ -1,6 +1,6 @@
 # Adding a new product
 
-## Tasks
+## Introduction
 
 In this exercise, we'll create a form to add a new product to our catalog.
 We can break it down into the following tasks:

@@ -1,6 +1,10 @@
 # Connecting to a database
 
-## Tasks
+## Requirement
+
+Docker
+
+## Introduction
 
 We now want to persist our data in a safe place. For that, we need to add a database to our application. For an application with a basic model, we can choose a SQL database like postgresql.
 
