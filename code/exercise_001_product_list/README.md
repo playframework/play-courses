@@ -1,6 +1,6 @@
 # Creating a product list page
 
-## Project structure
+## Introduction
 
 In this exercise, we will add a product page to our Play application. To do this, we need to complete the following steps:
 
@@ -11,7 +11,7 @@ In this exercise, we will add a product page to our Play application. To do this
 - Adding a route configuration
 - Delete the welcome page & redirect our user to our new page
 
-## steps
+## Steps
 
 ### Adding a Product model
 
