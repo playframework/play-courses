@@ -90,3 +90,9 @@ To setup the database, we provided a docker-compose file that take care of creat
 ```
 docker-compose up
 ```
+
+## Possible enhancements
+
+- Divide exercise 003 (create a new product) in two parts.
+    - First part => creating the product with a simple form.
+    - Second part => adding validation to the form

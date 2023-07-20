@@ -1,3 +1,9 @@
+Add background on how the course was created
+What template was used
+What's the end goal.
+
+list the global steps to go there:
+
 ## Project structure
 
 A Play application is based on the MVC pattern:

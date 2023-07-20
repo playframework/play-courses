@@ -1,6 +1,6 @@
 # Creating a product detail page
 
-## Tasks
+## Introduction
 
 In this exercise, we will add a product details page to our Play application. To do this, we need to complete the following steps:
 
@@ -37,7 +37,7 @@ product.details = Product: {0}
 ean = EAN
 name = Nombre
 description = Descripción
-product.details = Producot: {0}
+product.details = Producto: {0}
 ```
 
 **conf/messages.fr**
@@ -60,7 +60,7 @@ product.details = Product: {0}
 
 ### Templates
 
-You should create two new templates, the first one will be used to show the details of a specific product, and the second one the bar code. Indeed, later we plan to reuse the latter. The new templates should be named:
+You should create two new templates, the first one will be used to show the details of a specific product, and the second one the bar code. The new templates should be named:
 
 - `details.scala.html`
 - `barcode.scala.html`
@@ -98,7 +98,7 @@ The template structure is:
         <dt>[...]:</dt>
         <dd>[...]</dd>
     </dl>
-
+}
 ```
 
 You should replace the [...] with the good data.
@@ -155,7 +155,7 @@ The barcode template is really short, we just want an image with the barcode of 
 <img class="barcode" src="[...]" alt="@ean">
 ```
 
-As with the previous template, you should replace the [...] with the good data. However, we are going to see the routing and the controller creation in the next steps (you will need it to complete the template)
+As with the previous template, you should replace the [...] with the good data. However, we are going to see the routing and the controller creation in the next steps (you will need it to complete the template).
 
 ## Adding a new action to the `ProductController` action
 
