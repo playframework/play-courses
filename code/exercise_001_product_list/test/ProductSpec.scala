@@ -17,7 +17,7 @@ class ProductSpec extends PlaySpec {
           "Zebra Length 28mm Assorted 150 Pack")
       )
 
-      val actualProducts: Set[Product] = Product.products
+      val actualProducts: scala.collection.mutable.Set[Product] = Product.products
 
       assert(products == actualProducts)
     })
