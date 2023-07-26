@@ -7,6 +7,8 @@ RUNNING_PID
 .bsp
 
 # metals
+.metals
+project/*
 code/*/project/metals.sbt
 code/*/.metals
 
