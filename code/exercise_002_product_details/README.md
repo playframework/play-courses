@@ -16,7 +16,7 @@ In this exercise, we will add a product details page to our Play application. To
 Add a new method to the Product.scala model, we will name this one `findByEan`. The objective of this new method is to find a specific product based on its EAN.
 
 | Hint: Have a look at the `find()` method |
-| ------------------------------------------ |
+| ---------------------------------------- |
 
 ### Messages
 

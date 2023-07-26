@@ -2,15 +2,20 @@
 
 ## Requirement
 
-Docker
+[Docker](https://www.docker.com/get-started/)
 
 ## Introduction
 
-We now want to persist our data in a safe place. For that, we need to add a database to our application. For an application with a basic model, we can choose a SQL database like postgresql.
-
-For simplicity reason, we already made a `docker-compose.yml` file to setup our database and create the initial table with some dummy data. To start it up, run: `docker-compose up`.
-
+In this exercise, we will persist our data in a SQL database.
+For simplicity reason, we already made a `docker-compose.yml` file to setup our database and create the initial table with some dummy data.
+To start it up, run: `docker-compose up` in your terminal.
 We also made our application aware of the database by adding the credentials & the name in the application configuration file (`application/conf`).
+
+We need to perform the following steps to achieve this goal:
+
+- Create a query to select our data
+- Create a query to insert our data
+- Return a Product to be used by our controller
 
 ## Steps
 
