@@ -8,7 +8,6 @@ RUNNING_PID
 
 # metals
 .metals
-project/*
 code/*/project/metals.sbt
 code/*/.metals
 
@@ -22,6 +21,7 @@ code/*/.metals
 code/*/project/project/
 code/*/project/target/
 code/*/target/
+project/*
 
 # eclipse
 build/
